@@ -3,10 +3,20 @@
   "module": "index.ts",
   "type": "module",
   "private": true,
+  "bin": {
+    "mf": "src/cli/index.ts"
+  },
+  "scripts": {
+    "mf": "bun run src/cli/index.ts",
+    "test": "bun test"
+  },
   "devDependencies": {
     "@types/bun": "latest"
   },
   "peerDependencies": {
     "typescript": "^5"
+  },
+  "dependencies": {
+    "yaml": "^2.9.0"
   }
 }
