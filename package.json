@@ -8,6 +8,7 @@
   },
   "scripts": {
     "mf": "bun run src/cli/index.ts",
+    "build": "bun build --compile src/cli/index.ts --outfile dist/mf",
     "test": "bun test"
   },
   "devDependencies": {

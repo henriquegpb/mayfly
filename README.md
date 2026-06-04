@@ -41,12 +41,54 @@ for a different world:
 
 ## Status
 
-Early. The format is specified in [`SPEC.md`](./SPEC.md). The CLI is in
-development.
+Early. The format is specified in [`SPEC.md`](./SPEC.md). `mf check` works
+today; the rest of the CLI is in development.
+
+## Install
+
+`mf` builds to a single standalone binary with no runtime dependencies. From a
+checkout:
+
+```sh
+bun install
+bun run build      # → dist/mf
+```
+
+Put it on your `PATH` (or symlink it) to use `mf` anywhere:
+
+```sh
+sudo ln -s "$PWD/dist/mf" /usr/local/bin/mf
+```
+
+## Usage
+
+Run `mf check` from anywhere inside your repo. It scans for `.mf` files (and
+`.md` files that carry the header), reports what's expired or expiring, and
+exits non-zero if anything is expired — so it drops straight into CI or a
+pre-commit hook.
+
+```sh
+mf check
+```
+
+```
+Expired (1):
+  ✗ docs/legacy-notes.mf — past expiry date
+      remove after the v2 API launch
+
+Expiring soon (1):
+  ⚠ AGENTS.md — 4 days left
+
+1 expired, 1 expiring, 0 problem(s), 1 valid.
+```
+
+Paths in `expires_when` are resolved from the repository root, so `mf check`
+gives the same result regardless of which subdirectory you run it from. During
+development you can also run it without building: `bun run mf check`.
 
 ## Roadmap (V1)
 
-- [ ] `mf check` — report expired / expiring files (exit code for CI)
+- [x] `mf check` — report expired / expiring files (exit code for CI)
 - [ ] `mf snooze <file> +30d` — extend an expiry with one command
 - [ ] pre-commit hook
 - [ ] VS Code extension (icon + expired-state styling)
