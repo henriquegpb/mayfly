@@ -1,0 +1,12 @@
+---
+expires: 2027-01-01
+reason: "Política de branches vigente até a migração pro trunk-based em 2027."
+---
+
+# Convenção de branches
+
+Use `feature/<ticket>` para novas features e `fix/<ticket>` para correções.
+Faça PR contra `main`; squash-merge é obrigatório.
+
+Não abra branches de longa duração — elas divergem rápido e quebram o deploy
+contínuo.

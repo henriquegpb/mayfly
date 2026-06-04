@@ -1,0 +1,21 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build extension",
+      "//": "Runs bun by absolute path: VS Code tasks use a login shell that does not have ~/.bun/bin on PATH (the bun PATH export lives in .zshrc, not .zprofile), so a bare `bun` fails with exit 127. type:process skips the shell entirely.",
+      "type": "process",
+      "command": "${userHome}/.bun/bin/bun",
+      "args": ["build.mjs"],
+      "options": {
+        "cwd": "${workspaceFolder}/src/extension"
+      },
+      "group": "build",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "silent",
+        "panel": "shared"
+      }
+    }
+  ]
+}

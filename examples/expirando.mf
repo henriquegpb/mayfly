@@ -1,0 +1,12 @@
+---
+expires: 2026-06-09
+reason: "Feature flag temporária do checkout novo; remover ao concluir o rollout."
+---
+
+# Contexto: rollout do novo checkout
+
+O fluxo novo de checkout está atrás da flag `checkout_v2` em
+`src/checkout/flags.ts`. Está em rollout gradual (50% no momento).
+
+Ao mexer no checkout, mantenha os dois caminhos funcionando até a flag ser
+removida. Não apague o caminho legado ainda.

@@ -1,0 +1,12 @@
+---
+expires: 2025-01-01
+reason: "Workaround do bug da API v1 de pagamentos; a v2 já corrigiu isso."
+---
+
+# Workaround: timeout da API de pagamentos
+
+A API v1 (`src/payments/v1.ts`) às vezes demora >30s, então adicionamos retry
+manual com backoff no cliente.
+
+Se você está lendo isto e a v2 já entrou, **ignore**: o retry manual não é mais
+necessário e pode mascarar erros reais.
