@@ -1,0 +1,15 @@
+{
+  "//": "Static base icon for .mf files. Per-state visuals (valid/expiring/expired) come entirely from the FileDecorationProvider — an icon theme cannot reflect dynamic state. Swap icons/mf.svg to change the asset; no other edits needed.",
+  "iconDefinitions": {
+    "_mf": {
+      "iconPath": "../icons/mf.svg"
+    }
+  },
+  "fileExtensions": {
+    "mf": "_mf"
+  },
+  "fileNames": {},
+  "folder": "",
+  "file": "",
+  "hidesExplorerArrows": false
+}

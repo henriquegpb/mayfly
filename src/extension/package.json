@@ -1,0 +1,57 @@
+{
+  "name": "mayfly-vscode",
+  "displayName": "Mayfly",
+  "description": "Markdown that expires — file icon and expiry-state decorations for .mf files.",
+  "version": "0.1.0",
+  "publisher": "mayfly",
+  "private": true,
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["Visualization", "Other"],
+  "main": "./out/extension.js",
+  "activationEvents": ["onStartupFinished"],
+  "contributes": {
+    "iconThemes": [
+      {
+        "id": "mayfly",
+        "label": "Mayfly",
+        "path": "./fileicons/mayfly-icon-theme.json"
+      }
+    ],
+    "colors": [
+      {
+        "id": "mayfly.expiringForeground",
+        "description": "Color for .mf files that are expiring soon.",
+        "defaults": {
+          "dark": "#d7a23a",
+          "light": "#b27e12",
+          "highContrast": "#f0b840",
+          "highContrastLight": "#8a5d00"
+        }
+      },
+      {
+        "id": "mayfly.expiredForeground",
+        "description": "Color for .mf files that have expired.",
+        "defaults": {
+          "dark": "#7a7a7a",
+          "light": "#8c8c8c",
+          "highContrast": "#a0a0a0",
+          "highContrastLight": "#6b6b6b"
+        }
+      }
+    ]
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "watch": "node build.mjs --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "@types/vscode": "^1.85.0",
+    "esbuild": "^0.24.0",
+    "typescript": "^5"
+  }
+}
